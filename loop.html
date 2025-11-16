@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrupt detector</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="icon/jpg" href="/static/logo.jpg">
+
+    <style>
+        body {
+            margin: 0px;
+            background: radial-gradient(circle, rgb(49, 55, 128), rgb(0, 0, 3));
+            
+        }
+          .lightmode {
+            margin: 0px;
+            background: radial-gradient(circle, rgb(49, 55, 128), rgb(0, 0, 3));
+            
+        }
+         .darkmode {
+            margin: 0px;
+            background: radial-gradient(circle, rgb(179, 118, 118), rgb(68, 68, 161));
+        }
+        header {
+            margin-top: 50px;
+            flex-direction: row;
+            width: 100%;
+            height: 5vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: x-large;
+            gap: 30px;
+            color: white;
+            font-family: "Montserrat", sans-serif;
+        } 
+       
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .content {
+            border: none;
+            width: 80%;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 0px;
+        }
+        main .content input{
+            border-radius: 5px;
+            margin-bottom: 30px;
+            height: 9vh;
+            width: 80%;
+            font-size: larger;
+            border: 5px #000000;
+            
+        }
+        input::placeholder {
+            color: black;
+            font-family: monospace;
+        }
+        main .content button {
+            background-color: rgb(255, 0, 0);
+            font-size: large;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            width: 50%;
+            height: 7vh;
+            cursor: pointer;
+           
+        }
+         main .content button:hover {
+            background-color: rgb(144, 16, 16);
+         } 
+        .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.116);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        }
+        .spinner {
+             margin-top: 20px;
+             width: 50px;
+             height: 50px;
+             border: 5px solid #fff7f7;
+             border-top-color: #3498db;
+             border-radius: 50%;
+             animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+         to { transform: rotate(360deg); }
+        }
+        #display {
+            color: red;
+            background-color: white;
+            font: optional;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: x-large;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image {
+            width: 300px;
+            height: 40vh;
+            background-image: url(static/dont.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% auto;
+        }
+         .image2 {
+            width: 300px;
+            height: 40vh;
+            background-image: url(static/super.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% auto;
+        }
+      nav {
+        width: 90%;
+        margin-top: 50px;
+        background-color: transparent;
+        border: solid gray 2px;
+        border-radius: 10px;
+        height: 10vh;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-left: 5%;
+      }
+      .navs {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      nav .navs button{
+        border: none;
+        background-color: transparent;
+        color: white;
+        height: 4vh;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+       nav .navs button:hover {
+        background-color: transparent;
+        color: rgb(0, 136, 255);
+       }
+       
+
+    </style>
+</head>
+<body id="darkmode">
+    <header>
+        <div class="elements">
+        <p><strong>Corrupt Finder</strong></p>
+        </div>
+    </header>
+    <nav>
+        <div class="navs">
+            <a href="https://www.facebook.com/kim.baricog.2025"><button>Developer</button></a>
+            <button onclick="change()" id="changeTheme">
+            <i class="fas fa-moon" style="margin-right: 5px;"></i>Dark mode</button>
+        </div>
+    </nav>
+
+    <main>
+        <div id="content" class="content">
+            <input id="input" type="text" placeholder="Enter name...">
+            <button onclick="detect()">Detect</button>
+            <div id="spinner"></div>
+            <div id="scanning" style="color: white;
+                                      font-size: x-large;
+                                      margin-top: 10px;">
+            </div>
+            <p id="display"></p>
+            <div id="image"></div>
+        </div>       
+    </main>
+    <script>
+        const input = document.getElementById('input');
+        const loading = document.getElementById('spinner');
+        const box = document.getElementById('content');
+        const scan = document.getElementById('scanning');
+        const display = document.getElementById('display');
+        const image = document.getElementById('image');
+
+        function detect() {
+            scan.textContent = "Scanning...";
+            loading.classList.add("spinner");
+            display.textContent = ""
+            image.classList.remove("image");
+            image.classList.remove("image2");
+
+            setTimeout(() => {
+                loading.classList.remove("spinner");
+                scan.textContent = "";
+    
+                if(input.value === "bbm" ||
+                   input.value === "BBM" ||
+                   input.value === "bongbong" ||
+                   input.value === "BONGBONG" ||
+                   input.value === "bongbong marcos" ||
+                   input.value === "Bongbong Marcos" ||
+                   input.value === "marcos" ||
+                   input.value === "Marcos" ||
+                   input.value === "BONGBONG MARCOS") {
+
+                image.classList.add("image2");
+                input.value = "";
+        
+                } else if(input.value) {
+                      image.classList.add("image");
+                      input.value = "";
+                } 
+            }, 2000);
+        }
+        //theme//
+      const theme = document.getElementById('darkmode');
+      const text = document.getElementById('changeTheme');
+
+     function change() {
+             theme.classList.toggle("darkmode");
+
+             if(theme.classList.contains("darkmode")) {
+                 text.innerHTML = '<i class="fas fa-sun"></i> Light mode';
+
+             } else {
+                text.innerHTML = '<i class="fas fa-moon"></i> Dark mode';
+             }
+     }
+        
+    </script>
+</body>
+</html>

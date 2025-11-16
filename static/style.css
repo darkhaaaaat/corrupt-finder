@@ -1,0 +1,243 @@
+ body {
+            background-color: rgb(51, 100, 51);
+            margin: 0px;
+        }
+        .header {
+            width: 99%;
+            height: 10vh;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            overflow-x: none;
+        }
+        .header img {
+            border-radius: 50%;
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+            margin-left: 10px;
+        }
+        .header p {
+            margin-top: 25px;
+            color: white;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+        .info {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            gap: 15px;
+            flex-direction: row;
+            margin-left: 70%;
+            width: 20%;
+     
+        }
+        .info a {
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          font-family: monospace;
+          color: white;
+          text-decoration: none;
+          width: 20%;
+          cursor: pointer;
+          font-size: medium;
+          padding: 10px;
+          border-radius: 10px;
+        }
+        .info a:hover {
+             background-color: rgb(29, 55, 29);
+        }
+        .content {
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            flex-direction: row;
+        
+        }
+        .contentpage {
+            width: 30%;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            background-color: transparent;
+            background-color: transparent;
+        }
+        .content .mepicture {
+            width: 600px;
+            height: auto;
+            margin-right: 10%;
+            margin-top: 40px;
+        }
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            color: aliceblue;
+        }
+        .footercontent {
+            width: 500px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            font-size: smaller;
+            font-family: monospace;
+            color: gray;
+        }
+        i {
+            font-size: smaller;
+            font-family: monospace;
+            color: gray;
+        }
+        .content .infotext{
+            font-size: 15px;
+            font-family: monospace;
+            color: aliceblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 100px;
+            flex-direction: column;
+        }
+        .content .skills img {
+             width: 30px;
+             border-radius: 50%;
+             margin: 0px;
+        }
+         .content .skills  h1 {
+           font-size: 15px;
+           color: rgb(182, 178, 178);
+        }
+        .content .skills {
+            width: 100%;
+        }
+         .header .name {
+        width: 10%;
+      }
+      @media (max-width: 768px) {
+      
+          .info {
+            margin-left: 35%;
+        }
+        .info a {
+            width: 100%;
+        }
+        .content .infotext {
+            padding-left: 100px;
+            padding-bottom: 100px;
+        }
+        .header .name {
+        width: 20%;
+        }
+        .footercontent {
+            width: 200px;
+            height: 5vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-left: 60%;
+        }
+           .content .mepicture {
+            width: 600px;       
+            margin-right: 10%;
+            margin-top: 40px;
+        }
+      }
+       @media (max-width: 360px) {
+      
+        body {
+            height: 50vh;
+            width: 100%;
+        }
+        .header {
+            width: 93%;
+            height: 20vh;
+            flex-direction: column;
+            
+        
+        }
+        .info {
+            margin-top: 80px;
+            margin-left: 30%;
+            margin-right: 100%;
+            width: 40%;
+            padding-right: 100px;
+            position: absolute;
+            top: 70px;
+             
+        }
+        .info a {
+            width: 50%;
+        }
+        .content .infotext {
+         position: absolute;
+         top: 250px;
+         left: 60px;
+         font-size: 10px;
+         width: 20%;
+         margin-right: 0px;
+         
+        }
+        .content .infotext p {
+          display: flex;
+          flex-wrap: wrap;
+          font-size: 15px;
+          width: 300%;
+          height: 200px;
+          margin-right: 0px;
+        }
+         .content .infotext .icon {
+          display: flex;
+          margin-top: px;
+          gap: 10px;
+        
+        }
+        .skills h1 {
+            display: flex;
+            width: 200px;
+            margin-top: 230px;
+            
+        }
+        .header .name {
+        width: 40%;
+        font-size: 5px;
+        height: 5vh;
+        margin-left: 31%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .header img {
+            width: 20%;
+            height: 9vh;
+            margin-left: 40%;
+        }
+        .footercontent {
+            width: 190px;
+            height: 5vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0%;
+          
+        }
+        footer {
+            width: 100%;
+        }
+        .content {
+            width: 90%;
+            padding-right: 0px;
+        }
+           .content .mepicture {
+            width: 300px;       
+            margin-right: 80%;
+            margin-top: 290px;
+        }
+      }
+     
