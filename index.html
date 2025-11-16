@@ -217,18 +217,21 @@
                 loading.classList.remove("spinner");
                 scan.textContent = "";
     
-                if(input.value === "bbm" ||
-                   input.value === "BBM" ||
-                   input.value === "bongbong" ||
-                   input.value === "BONGBONG" ||
-                   input.value === "bongbong marcos" ||
-                   input.value === "Bongbong Marcos" ||
-                   input.value === "marcos" ||
-                   input.value === "Marcos" ||
-                   input.value === "BONGBONG MARCOS") {
-
-                image.classList.add("image2");
-                input.value = "";
+                const validValues = [
+                        "bbm",
+                        "BBM",
+                        "bongbong",
+                        "BONGBONG",
+                        "bongbong marcos",
+                        "Bongbong Marcos",
+                        "marcos",
+                        "Marcos",
+                        "BONGBONG MARCOS"
+                    ];
+        
+              if (validValues.includes(input.value)) {
+                  image.classList.add("image2");
+                  input.value = "";
         
                 } else if(input.value) {
                       image.classList.add("image");
